@@ -1,9 +1,24 @@
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:machine_test/view/screens/login_screen.dart';
 
 void main() {
+   WidgetsFlutterBinding.ensureInitialized();
+  AwesomeNotifications().initialize(
+    null,
+    [
+      NotificationChannel(
+          channelKey: 'basic_channel',
+          channelName: 'Basic notifications',
+          channelDescription: 'Notification channel for basic tests',
+          defaultColor: Colors.white,
+          ledColor: Colors.white,
+          enableLights: true,
+          enableVibration: true)
+    ],
+  );
   runApp(const MyApp());
 }
 
